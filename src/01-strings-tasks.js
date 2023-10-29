@@ -238,13 +238,14 @@ function encodeToRot13(str) {
   const alphabetLower = 'abcdefghijklmnopqrstuvwxyz';
   const alphabetLowerCoder = 'nopqrstuvwxyzabcdefghijklm';
 
-  function codeChar(letter) {
-    if (alphabetUpper.includes(letter)) {
-      letter = alphabetUpperCoder[alphabetUpper.indexOf(letter)];
-    } else if (alphabetLower.includes(letter)) {
-      letter = alphabetLowerCoder[alphabetLower.indexOf(letter)];
+  function codeChar(symb) {
+    let char;
+    if (alphabetUpper.includes(symb)) {
+      char = alphabetUpperCoder[alphabetUpper.indexOf(symb)];
+    } else if (alphabetLower.includes(symb)) {
+      char = alphabetLowerCoder[alphabetLower.indexOf(symb)];
     }
-    return letter;
+    return char;
   }
 
   return str.split('').map((el) => codeChar(el)).join('');
